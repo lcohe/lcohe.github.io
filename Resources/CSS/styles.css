@@ -69,16 +69,3 @@ li {
 li:last-child {
     margin-bottom: 0;
 }
-
-/* Links */
-a {
-    color: #ff6b6b;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: #ff8787;
-    text-decoration: underline;
-}

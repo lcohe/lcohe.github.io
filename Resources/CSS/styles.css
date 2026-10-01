@@ -1,71 +1,233 @@
-/* Base Body Styling for Dark Theme */
+:root {
+    --background: #07090d;
+    --text: #aeb6c3;
+    --heading: #f2f5fa;
+    --accent: #ff435b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--background);
+    scroll-behavior: smooth;
+}
+
+/* Deep background with subtle ambient light */
 body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0 auto;
-    padding: 40px 20px;
-    max-width: 800px; 
+    margin: 0;
+    min-height: 100vh;
+    padding: 72px 24px;
+    color: var(--text);
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+
+    background:
+        radial-gradient(
+            ellipse 900px 550px at 50% 0%,
+            rgba(255, 67, 91, 0.1),
+            transparent 70%
+        ),
+        radial-gradient(
+            ellipse 850px 650px at 50% 65%,
+            rgba(75, 104, 160, 0.07),
+            transparent 70%
+        ),
+        var(--background);
 }
 
-/* Headings */
+header,
+main {
+    margin-inline: auto;
+}
+
+/* Large, crisp headline */
+header {
+    max-width: 960px;
+    margin-bottom: 72px;
+    text-align: center;
+}
+
 h1 {
-    color: #ff6b6b;
-    font-size: 2.5rem;
-    border-bottom: 1px solid #333333;
-    padding-bottom: 12px;
-    margin-bottom: 24px;
-    letter-spacing: -0.5px; 
-    text-align: center;
+    max-width: 18ch;
+    margin: 0 auto;
+    color: var(--heading);
+    font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    font-size: clamp(2.6rem, 6.5vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+    text-shadow: 0 0 50px rgba(255, 67, 91, 0.1);
 }
 
-/* Header + Images */
-.header-images {
+/* Accent line fades into the background */
+header::after {
+    content: "";
+    display: block;
+    max-width: 560px;
+    height: 1px;
+    margin: 36px auto 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 67, 91, 0.2) 20%,
+        var(--accent) 50%,
+        rgba(255, 67, 91, 0.2) 80%,
+        transparent
+    );
+}
+
+/* Open sections */
+main {
+    max-width: 760px;
+    counter-reset: section;
+}
+
+.content {
+    counter-increment: section;
     position: relative;
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto 24px;
+    margin-bottom: 64px;
+    padding-bottom: 56px;
 }
 
-.project-image {
-    width: 100%;
-    margin: 0;
-}
-
-.dancing-rabbi {
+.content::after {
+    content: "";
     position: absolute;
-    right: 3%;
-    bottom: 2%;
-    width: clamp(90px, 24%, 150px);
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
-    filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.65));
+    bottom: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(174, 182, 195, 0.22) 50%,
+        transparent
+    );
 }
 
-/* Typography */
+.content:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.content:last-child::after {
+    display: none;
+}
+
+/* Small numbered section labels */
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 0 28px;
+    color: var(--heading);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+h2::before {
+    content: "0" counter(section);
+    color: var(--accent);
+    letter-spacing: 0;
+    text-shadow: 0 0 16px rgba(255, 67, 91, 0.4);
+}
+
+h3 {
+    margin: 0 0 12px;
+    color: var(--heading);
+    font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    text-align: center;
+    text-wrap: balance;
+}
+
+article {
+    margin-top: 40px;
+}
+
+article:first-of-type {
+    margin-top: 0;
+}
+
 p {
-    font-size: 1.125rem;
-    margin-bottom: 16px;
+    max-width: 65ch;
+    margin: 0 auto 18px;
+    font-size: 1.0625rem;
+}
+
+article > p:last-child,
+.content > p:last-child {
+    margin-bottom: 0;
+}
+
+article + p {
+    margin-top: 24px;
     text-align: center;
 }
 
-/* Lists */
-ul {
-    background-color: #2a2a2a;
-    padding: 20px 20px 20px 40px;
-    border-radius: 8px;
-    border-left: 4px solid #ff6b6b; 
-    margin-bottom: 24px;
-    box-shadow: 0 4px 12px rgba(51, 51, 51, 0.6);
+/* Clean links with smooth light on hover */
+.profile-link {
+    color: var(--heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255, 67, 91, 0.45);
+    text-underline-offset: 7px;
+    transition:
+        color 220ms ease,
+        text-decoration-color 220ms ease,
+        text-shadow 220ms ease;
 }
 
-li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+.profile-link::after {
+    content: " ↗";
+    color: var(--accent);
 }
 
-li:last-child {
-    margin-bottom: 0;
+.profile-link:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+    text-shadow: 0 0 18px rgba(255, 67, 91, 0.3);
+}
+
+.profile-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+    body {
+        padding: 36px 20px;
+    }
+
+    header {
+        margin-bottom: 52px;
+    }
+
+    .content {
+        margin-bottom: 40px;
+        padding-bottom: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .profile-link {
+        transition: none;
+    }
 }

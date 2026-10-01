@@ -178,6 +178,12 @@ p {
     font-size: 0.95rem;
 }
 
+/* Align full lines to both edges and center the final line */
+.content p {
+    text-align: justify;
+    text-align-last: center;
+}
+
 article > p:last-child,
 .content > p:last-child {
     margin-bottom: 0;
@@ -233,6 +239,12 @@ article + p {
         margin-bottom: 40px;
         padding-bottom: 36px;
     }
+
+    /* Keep natural word spacing on narrow screens */
+    .content p {
+        text-align: center;
+        text-align-last: auto;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -243,12 +255,6 @@ article + p {
     .profile-link {
         transition: none;
     }
-}
-
-/* Align full lines to both edges and center the final line */
-.content p {
-    text-align: justify;
-    text-align-last: center;
 }
 
 /* Three dots between consecutive paragraphs */

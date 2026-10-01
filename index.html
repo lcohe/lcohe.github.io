@@ -1,25 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
+        <!-- Tells the browser how to read text, so things like Hebrew, and emojis display correctly -->
         <meta charset="UTF-8">
+        <!-- Adjusts styling for mobile phones -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My First Project</title>
+        <title>I'm not the funniest child</title>
+        <link rel="icon" type="image/webp" href="./Resources/Images/dancing_rabbi.webp">
         <link rel="stylesheet" href="./Resources/CSS/styles.css">
     </head>
+
     <body>
-        <header>
-            <div class="header-images">
-                <img src="./Resources/Images/dancing_rabbi.webp" alt="A dancing rabbi" class="dancing-rabbi">
-                <img src="./Resources/Images/project_img.jpg" alt="Project Logo" class="project-image">  
-            </div>                  
-            <h1>Welcome to my first project</h1>
+        <header>                              
+            <h1>Welcome to my personal page</h1>
         </header>
+
+        <main>
+            <section class="content" id="about">
+                <h2>What I'm about</h2>
+                <p>
+                    I'm Levi, and I work in technical program management and technology operations. 
+                    I lead cross-department projects, oversee troubleshooting for our internal systems, 
+                    and improve the tools and workflows people use every day.
+                    I work with business teams and developers to understand problems,
+                    coordinate solutions, and put changes into practice.
+                </p>
+                <p>
+                    I like understanding how things work, not just how to use them.
+                    I'm interested in AI, coding, and systems architecture, and I'm learning 
+                    by building projects and experimenting.
+                </p>
+                <p>
+                    This site is where I'll share what I'm learning, 
+                    and what I've built along the way.                    
+                </p>
+            </section>
         
+            <section class="content" id="learning">
+                <h2>What I'm learning</h2>
+                <article>
+                    <h3>Full-Stack Engineering</h3>
+                    <p>
+                        I'm working through Codecademy's Full-Stack Engineer course, 
+                        learning how to build web applications from the interface to the backend. 
+                        This website is part of that learning process.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Computer Networking</h3>
+                    <p>
+                        I'm building my understanding of networking through Cisco courses, 
+                        including Networking Basics and Introduction to Packet Tracer, 
+                        and exploring how devices connect and communicate.
+                    </p>
+                </article>
+
+                <p>
+                    <a class="profile-link" href="https://www.linkedin.com/in/levi-cohen-20560b143/">
+                        View my courses and certificates on LinkedIn
+                    </a>
+                </p>
+            </section>
+
+            <section class="content" id="completed">
+                <h2>What I've built</h2>
+                <article>
+                    <h3>Employee Vehicle Checkout App</h3>
+                    <p>
+                        I built a web app to track employee use of company vehicles: 
+                        who has a vehicle, where it's going, and when it's expected back. 
+                        It tracks active and overdue checkouts, records returns, and 
+                        includes searchable trip history and CSV exports.
+                    </p>
+                    <p>
+                       This project gave me hands-on experience taking an app from local 
+                       development to deployment. I built it with React and Firebase, 
+                       using AI coding tools throughout the process. Drawing on my 
+                       troubleshooting experience and understanding of systems, I worked 
+                       to test the app and resolve issues until it was reliable and polished. 
+                       It is now actively used in our day-to-day operations.
+                    </p>
+                </article>
+                <p>
+                    <a class="profile-link" href="https://github.com/lcohe/Employee-Vehicle-Checkout-Public">
+                        View project on github
+                    </a>
+                </p>
+
+                <article>
+                    <h3>AI Troubleshooting Agent</h3>
+                    <p>
+                        I built a self-hosted AI agent to review troubleshooting tickets 
+                        in monday.com, pull in relevant history, and send summaries to Slack. 
+                        It ran on an Ubuntu server, with a Python webhook receiver and a 
+                        Docker-based memory service.
+                    </p>
+                    <p>
+                        The project gave me hands-on experience with Linux, Docker, 
+                        networking, and keeping services running reliably. I eventually 
+                        shut it down because maintaining it took about as much time as 
+                        it saved. It was a worthwhile learning project, and it taught me 
+                        to consider the ongoing work behind an automation, not just
+                        whether I could get it running.
+                    </p>
+                </article>
+            </section>            
+        </main>
         
-        <p>I'm learning to code on Codecademy! My goals include:</p>
-            <ul>
-                <li>Understanding how to code</li>
-                <li>Being able to build my own App/Features</li>                
-            </ul>
+        <footer>
+            
+        </footer>
+    
     </body>
+
 </html>
